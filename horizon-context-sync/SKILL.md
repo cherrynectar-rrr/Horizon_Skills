@@ -1,129 +1,127 @@
 # HZN-001 — horizon-context-sync
 
-Version: 0.5
+Version: 0.6
 Status: Adopted — Active
 Owner: Horizon Core
-Last Updated: 2026-08-29
+Last Updated: 2026-09-04
 
 ## Purpose
 
-Establish the **minimum authoritative Project Horizon context** needed before important work, while preserving role boundaries and avoiding unnecessary repository reads.
+Establish the **minimum authoritative Project Horizon context** required before important work in the multi-repository ecosystem.
 
-This Skill exists to prevent:
+The Skill exists to prevent:
 
 - planning from stale chat memory;
-- reading more of the repository than the task requires;
+- reading more repositories than the task requires;
+- opening the wrong canonical state after the multi-repo split;
 - role / write-boundary leakage;
-- treating hypotheses or old strategic material as current approved state;
-- presenting mutable external facts as current without verification;
-- creating governance ceremony that costs more than it saves.
+- duplicated status truth;
+- treating old strategy as current execution state;
+- presenting mutable external facts as current without verification.
 
-## Version Status
+## Core Rule
 
-- **Current adopted version:** HZN-001 v0.5 — Horizon Core Edition.
-- **Historical adopted baseline:** HZN-001 v0.4, pinned at adoption-time blob SHA `ff2d8af44fd346e20ed6d9e255be4ff9a48e8f78` under `CTV-20260828-04`.
-- v0.5 supersedes v0.4 for current operation under Charter v4.0 / `THREAD_PROTOCOL.md` v2.0.
-- Later material edits are candidate changes only until Horizon Core explicitly adopts a new version.
+**Route first, read local state first, expand context only when the task requires it.**
+
+Default flow:
+
+`task → owner → canonical repo → local STATUS → execute`
+
+Escalate context only when needed:
+
+`local STATUS → MASTER_STATUS → strategy / protocol / charter / external sources`
+
+Do not invert this order by loading the whole Horizon control stack before routine specialist work.
+
+## Operating Model
+
+- **Horizon Core = Explore + Decide & Coordinate**
+- **Specialist Threads = Execute**
+
+`cherrynectar-rrr/Project_Horizon` is the control plane.
+
+Canonical repository routing is defined by:
+
+`Project_Horizon/00_Project_Control/REPOSITORIES.md`
+
+Repository location does not grant authority. Authority remains defined by the Charter and Thread Protocol.
+
+## Common Task Routing
+
+| Task / owner | Canonical state |
+| --- | --- |
+| Horizon-wide decision | `Project_Horizon/00_Project_Control/MASTER_STATUS.md` |
+| Python | `Horizon_Learning/Python/STATUS.md` |
+| C++ | `Horizon_Learning/CPP/STATUS.md` |
+| Linux | `Horizon_Learning/Linux/STATUS.md` |
+| Algorithm | `Horizon_Learning/Algorithm/STATUS.md` |
+| Embedded | `Horizon_Learning/Embedded/STATUS.md` |
+| Qingdao competition | `Horizon_projects/2026_Qingdao_Agri_Data_Competition/STATUS.md` |
+| Academic Operations | `Horizon_Academic/Academic_Operations/STATUS.md` |
+| Finance | `Horizon_Life/Finance/STATUS.md` |
+| Nutrition & Recovery | `Horizon_Life/Nutrition_Recovery/README.md` until STATUS initialization |
+| Career / Internship | `Project_Horizon/09_Career/STATUS.md` until later migration decision |
+| Earth Flywheel | `Earth_Flywheel/` project-local state / evidence |
+| Skills | `Horizon_Skills/` |
+
+If a task does not match this table cleanly, consult the Repository Registry rather than guessing.
 
 ## Triggers
 
-Use this Skill before:
+Use HZN-001 before:
 
-- important Horizon planning or decisions;
+- important Horizon planning / decisions;
 - cross-thread coordination;
-- route / priority / competition / research / study-abroad / career decisions;
+- route, priority, competition, research, study-abroad or career decisions;
 - governance-sensitive repository writes;
-- specialist work where current Horizon state materially affects execution;
+- specialist work where current state materially affects execution;
 - tasks where chat context may be stale or conflicting.
 
-## Do Not Trigger When
+## Do Not Trigger a Full Sync When
 
-Do not run a full sync for:
+Do not expand into a full control-plane sync for:
 
 - casual conversation;
-- a tiny isolated exercise unrelated to Horizon state;
-- simple explanations with no priority / authority / state dependency;
-- work already operating from freshly fetched authoritative state in the same conversation, unless a material update may have occurred.
-
-## Roles
-
-Horizon now has two operating layers:
-
-1. **Horizon Core / 核心舱 = Explore + Decide & Coordinate**
-2. **Specialist Threads = Execute**
-
-The former Voyage Room / Main Control split and the Voyage–Control bridge are historical. Do not use the frozen bridge files for new top-level communication.
-
-## Authority Order
-
-Resolve conflicts in this order:
-
-1. `00_Project_Charter/Project_Horizon_Charter_v4.0.md`
-2. `00_Project_Control/THREAD_PROTOCOL.md`
-3. `00_Project_Control/MASTER_STATUS.md`
-4. relevant Core strategic analyses / formal Core decisions
-5. relevant specialist `STATUS.md`
-6. evidence / artifacts
-7. chat memory as supporting context only
-
-A lower layer must not silently override a higher layer.
+- tiny isolated exercises;
+- routine specialist work whose local STATUS is sufficient;
+- work already operating from freshly fetched authoritative state in the same conversation;
+- tasks with no state, priority or authority dependency.
 
 ## Required Reads by Role
 
+### Specialist Thread — default local-first path
+
+1. Read the specialist's canonical local `STATUS.md`.
+2. Execute the task.
+
+Read `MASTER_STATUS.md` only if the task involves:
+
+- priority or capacity;
+- another thread;
+- activation / pause / promotion;
+- project scope or competition route;
+- a Core dependency;
+- a conflict between local and Horizon-wide state.
+
+Read README / course architecture only when the task needs durable scope or learning structure.
+
+Read `THREAD_PROTOCOL.md` / Charter only when authority, write ownership or governance is unclear.
+
+Write only the specialist's own authorized state/workspace.
+
 ### Horizon Core
 
-For important Core work, read:
+1. Read `MASTER_STATUS.md`.
+2. Read only the canonical Specialist / project state that can materially change the decision.
+3. Read strategy only when prior route research, alternatives or unresolved hypotheses matter.
+4. Read Protocol / Charter only when governance, authority or shared infrastructure matters.
+5. Verify mutable external facts when material.
 
-1. `00_Project_Control/MASTER_STATUS.md`;
-2. only the specialist `STATUS.md` files that can materially affect the task;
-3. relevant strategic analyses when prior research, unresolved hypotheses or route history matter;
-4. Charter / `THREAD_PROTOCOL.md` only when governance, authority, write ownership or shared infrastructure is material;
-5. current external sources when the decision depends on mutable real-world facts.
+Core must not scan every repository by default.
 
-Do **not** read every thread or the frozen Voyage–Control bridges by default.
+## Task Classification
 
-Write boundary:
-
-- Core-owned control / governance files;
-- `MASTER_STATUS.md`;
-- Core-owned strategic analyses, including preserved strategy material under `00_Strategy/Voyage_Room/` except frozen historical bridge files;
-- other files explicitly assigned to Core.
-
-Never write a specialist's `STATUS.md` on that specialist's behalf.
-
-### Specialist Thread
-
-For important specialist work, read:
-
-1. that specialist's own `STATUS.md`;
-2. `MASTER_STATUS.md` only when the task involves priority, another thread, capacity conflict, activation state, competition / project route or a Core dependency;
-3. strategic analyses only when the specialist's approved scope genuinely depends on long-term route context;
-4. current external sources when mutable facts are material.
-
-Write boundary:
-
-- the specialist's own `STATUS.md`;
-- operational workspaces / files explicitly authorized for that specialist.
-
-A specialist must not change long-term route, cross-thread priority or another thread's state. Material conflicts escalate as **Needs Core Decision**.
-
-## External Freshness Check
-
-After repository sync, ask:
-
-> Does the answer depend on information that can change?
-
-Examples include admissions rules, APS / visa / immigration procedures, scholarships, programme fees, competition dates, software versions, named labs / professors, job openings, salaries, employment policy and market conditions.
-
-If yes, verify current reliable external sources before presenting the fact as current.
-
-Old strategic documents may preserve useful reasoning, but they do not substitute for fresh verification.
-
-## Procedure
-
-### Step 1 — Classify the task
-
-Classify as one or more of:
+Internally classify the request as one or more of:
 
 - routine execution;
 - cross-thread coordination;
@@ -133,137 +131,121 @@ Classify as one or more of:
 - external-current-fact question;
 - repository write.
 
-### Step 2 — Determine authority
+Then resolve:
 
-Internally identify:
+- owner;
+- canonical repository;
+- minimum required state;
+- write boundary;
+- whether external freshness is needed;
+- whether a Core decision is needed.
 
-- current role;
-- allowed decision scope;
-- allowed write scope;
-- whether a Core decision or governance check is required.
-
-If authority or write ownership is unclear, stop before writing and consult the Charter / `THREAD_PROTOCOL.md`.
-
-### Step 3 — Fetch minimum authoritative state
-
-Use the role rules above.
-
-Read only files that can materially change the answer or write boundary.
-
-### Step 4 — Resolve conflicts
+## Conflict Resolution
 
 If chat memory, user recollection and GitHub disagree:
 
-- preserve new user evidence as evidence;
-- do not silently rewrite official state;
-- use the latest formal GitHub state for current governance / execution state;
-- route material discrepancies through the proper owner.
+- user-provided new information may be treated as evidence;
+- do not silently rewrite formal state;
+- use current canonical GitHub state for governance / execution truth;
+- route a material discrepancy through the correct owner.
 
-### Step 5 — Check external freshness
+If two repository copies disagree during migration, use the repository designated canonical in `REPOSITORIES.md`. Legacy `Project_Horizon` execution folders are not a second live source after cutover.
 
-If mutable external facts matter, verify them before high-impact conclusions.
+## External Freshness Check
 
-### Step 6 — Build a compact internal Context Packet
+Ask:
+
+> Does the answer depend on information that can change?
+
+Examples: admissions, APS, visa rules, funding, competition dates, software versions, named labs / professors, jobs, salaries, employment policy and market conditions.
+
+If yes, verify current reliable sources before presenting the claim as current.
+
+## Repository Write Rule
+
+Before writing:
+
+1. confirm the canonical owner;
+2. fetch the latest target and SHA;
+3. make the minimum evidence-justified change;
+4. do not record a plan as completion;
+5. do not create duplicate canonical state;
+6. fail closed if ownership is unclear.
+
+For STATUS / MASTER writes, apply the meaningful-change rule from `THREAD_PROTOCOL.md` and HZN-002 where applicable.
+
+## Human-Only Boundary
+
+Personal showcase/profile repositories maintained by the user are outside Horizon's AI execution surface.
+
+Do not read, edit, review, synchronize or write to them unless the user explicitly revokes that boundary.
+
+## Compact Internal Context Packet
+
+Use only when the task is complex enough to benefit:
 
 ```text
 Role:
 Task Type:
+Canonical Owner / Repo:
 Authoritative State:
-Relevant Priorities / Constraints:
-Affected Threads:
+Relevant Priority / Constraints:
 Allowed Writes:
 External Freshness Needed: Yes/No
 Needs Core Decision: Yes/No
 Unknowns That Matter:
 ```
 
-Do not show this packet unless it helps explain a decision or limitation.
+Do not show this packet unless it improves the user's understanding.
 
-### Step 7 — Execute the user's actual task
+## Success Test
 
-The Skill is a preflight, not the deliverable.
+HZN-001 succeeds when:
 
-The visible response should answer the real task rather than narrating governance machinery.
+- the correct canonical state is reached quickly;
+- unnecessary repositories are not read;
+- local specialist work usually begins from one STATUS read;
+- MASTER is loaded only when Horizon-wide context matters;
+- write ownership remains clear;
+- mutable facts are verified when needed;
+- legacy copies do not become competing truth.
 
-## Output Contract
-
-Success means the invoking workflow has:
-
-- fresh role-correct Horizon context;
-- only the necessary authoritative state;
-- clear priority / constraint context;
-- a clear write boundary;
-- identified external facts requiring fresh verification;
-- identified unresolved conflicts or Core decisions.
-
-## Verification Checklist
-
-Before proceeding, verify:
-
-- [ ] Correct current role identified
-- [ ] Correct current Charter / Protocol model used
-- [ ] Minimum sufficient authoritative files read
-- [ ] Frozen Voyage–Control bridges not used as live state
-- [ ] No unnecessary full-repository scan
-- [ ] Hypotheses / old recommendations not mistaken for approved state
-- [ ] Write ownership respected
-- [ ] Mutable external facts marked for verification
-- [ ] Material conflicts surfaced rather than overwritten
-
-## Stop / Escalation Conditions
-
-Stop or escalate when:
-
-- a requested write violates ownership;
-- a specialist is being asked to change long-term route or cross-thread priority;
-- specialist state conflicts materially with `MASTER_STATUS.md`;
-- current evidence is insufficient for a high-impact decision;
-- external rules are time-sensitive but cannot be verified;
-- required repository / tool access fails and missing state is essential;
-- a Skill change would silently expand authority or activate new work.
-
-## Trial Evidence
-
-Historical v0.1–v0.4 evidence remains in:
-
-`00_Strategy/Voyage_Room/skills/horizon-context-sync/TRIAL_LOG.md`
-
-v0.5 adoption evidence is preserved in:
-
-`00_Strategy/Voyage_Room/skills/horizon-context-sync/TRIAL_LOG_V0.5.md`
-
-Trial 005 validated Horizon Core behavior under the two-layer governance model. Trial 006 validated Specialist-side clean-state behavior without artificial STATUS churn. GitHub does not expose chat-side read telemetry; that limitation is explicitly preserved in the Trial 006 record rather than inferred away.
-
-## Anti-patterns
+## Anti-Patterns
 
 Do not:
 
-- recite the Charter every time;
-- treat memory as source of truth;
-- read all threads "just in case";
-- use frozen bridge files as live mailboxes;
-- write a STATUS update merely because a conversation happened;
-- let Explore ideas automatically become execution decisions;
-- let Skill maintenance become a new standing workload;
-- fabricate missing state to keep the workflow moving.
+- recite the Charter every session;
+- open MASTER for every tiny specialist question;
+- scan all Horizon repositories "just in case";
+- treat legacy monorepo execution copies as live state;
+- create status updates merely because a conversation occurred;
+- let Explore ideas silently become execution decisions;
+- build a routing dashboard or message bus before real evidence requires it;
+- fabricate missing state to keep moving.
+
+## Version Status
+
+- **Current adopted version:** v0.6 — Multi-Repository Local-First Edition.
+- **Previous adopted version:** v0.5 — Horizon Core Edition, preserved in Git history.
+- v0.6 is an operating-architecture compatibility update authorized by the user's 2026-09-04 Horizon Efficiency Pass. It changes repository routing and default read depth, not Horizon authority boundaries.
 
 ## Change Log
 
-### v0.5 — 2026-08-29 — Adopted
+### v0.6 — 2026-09-04 — Adopted
 
-- Migrated from the retired Voyage Room + Main Control model to **Horizon Core + Specialist Threads**.
-- Updated authority root from Charter v3.0 to Charter v4.0.
-- Removed live Voyage–Control bridge reads and old cross-role Trial Log routing machinery.
-- Simplified the Context Packet and role-based minimum-read rules.
-- Replaced `Needs Master Decision` language with `Needs Core Decision`.
-- Split historical v0.1–v0.4 Trial evidence from v0.5 adoption evidence.
-- Validated one real Horizon Core use and one real Algorithm Specialist invocation under the two-layer model.
-- Preserved the evidence limitation that chat-side read telemetry is not independently visible in GitHub.
+- added multi-repository canonical routing;
+- made Specialist startup explicitly local-STATUS-first;
+- made MASTER conditional rather than default for routine specialist work;
+- added task → owner → repo routing;
+- added legacy-copy conflict rule after control-plane cutover;
+- added human-only showcase boundary;
+- reduced unnecessary Charter / Protocol reads;
+- retained external freshness and write-boundary protections.
 
-### v0.4 — 2026-08-28 — Adopted historical baseline
+### v0.5 — 2026-08-29 — Adopted historical version
 
-- First version adopted across Horizon under `CTV-20260828-04`.
-- Proven across Voyage Room, Main Control and Algorithm Specialist use.
-- Historical adopted artifact pinned by blob SHA.
+- migrated governance from Voyage Room + Main Control to Horizon Core + Specialist Threads;
+- removed live Voyage–Control bridge routing;
+- established role-based minimum reads and fresh-state reuse.
 
-Earlier v0.1–v0.3 changes remain preserved in Git history and the historical `TRIAL_LOG.md`.
+Earlier versions and trial evidence remain preserved in Git history and historical Project Horizon records.
