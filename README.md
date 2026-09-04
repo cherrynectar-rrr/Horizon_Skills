@@ -27,6 +27,7 @@ Current routing begins with `horizon-context-sync` v0.6:
 
 ### Candidate — Trial
 
+- `adaptive-guided-learning` — v0.1 — high-efficiency guided learning with dynamic step size and anti-fragmentation rules
 - `status-update` — HZN-002 v0.1 — meaningful-change gate for formal state
 - `engineering-debug-loop` — v0.2 — evidence-first root-cause debugging
 - `behavior-first-testing` — v0.1 — observable behavior before implementation detail
