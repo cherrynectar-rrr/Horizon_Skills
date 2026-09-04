@@ -1,6 +1,6 @@
 # Project Horizon — Skills Architecture
 
-Last Updated: 2026-09-04
+Last Updated: 2026-09-05
 Owner: Horizon Core
 Status: Active Architecture — Conservative Expansion
 
@@ -94,9 +94,10 @@ Before absorbing an external Skill, ask:
 
 Never import executable scripts, commands or tool permissions merely because an upstream Skill includes them. Inspect dependencies, side effects and capability first.
 
-The latest broad intake record is:
+Current intake records:
 
-`EXTERNAL_SKILL_SCAN_2026-09-04.md`
+- `EXTERNAL_SKILL_SCAN_2026-09-04.md` — broad engineering / research intake;
+- `LIFE_HEALTH_SKILL_INTAKE_2026-09-05.md` — selective life / health intake with stricter safety and evidence boundaries.
 
 ## Lifecycle
 
@@ -144,6 +145,8 @@ Do not create artificial milestones merely to finish a Trial.
 - `codebase-orientation` — v0.1
 - `source-grounded-research` — v0.1
 - `experiment-design` — v0.1
+- `nutrition-planning` — v0.1
+- `habit-change` — v0.1
 
 ### Frozen numbered backlog
 
@@ -151,12 +154,14 @@ Do not create artificial milestones merely to finish a Trial.
 - HZN-004 — strategic-route-audit
 - HZN-005 — opportunity-filter
 
-The engineering / research micro-skill trials do not consume or unfreeze those numbered IDs.
+The engineering / research / life micro-skill trials do not consume or unfreeze those numbered IDs.
 
 ## Deliberately Deferred Patterns
 
 Potentially useful later, but not standing Horizon Skills today:
 
+- workout-program planning until regular training creates a real repeated need;
+- a separate recovery-check Skill until Life Operations shows a distinct workflow not already covered locally;
 - security review for real network / auth / trust-boundary projects;
 - performance profiling for demonstrated bottlenecks;
 - user-facing documentation architecture when projects gain real external users;
@@ -165,6 +170,15 @@ Potentially useful later, but not standing Horizon Skills today:
 - large multi-agent councils, project-management stacks or universal quality playbooks.
 
 A future need should activate the smallest useful method, not the largest available framework.
+
+## Health / Life Safety Boundary
+
+Health-related Skills use a stricter evidence rule than ordinary workflow Skills.
+
+- Community Skills may supply workflow ideas, not medical authority.
+- Quantitative or mutable health claims should be verified from authoritative sources when material.
+- Clinical diagnosis / treatment, significant injury, addiction, eating disorders and similar issues remain outside ordinary life-optimization Skills.
+- Do not represent the assistant as a physician, dietitian, therapist or certified trainer.
 
 ## Physical Location
 
@@ -187,6 +201,7 @@ The Skills layer is useful only if it measurably reduces or improves one or more
 - unsafe codebase onboarding;
 - weak source grounding;
 - uninterpretable experiments;
+- daily-life planning friction;
 - user coordination burden.
 
 If a Skill adds more maintenance than it removes, simplify, merge, defer or remove it.
