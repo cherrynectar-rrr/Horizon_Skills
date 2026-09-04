@@ -37,6 +37,8 @@ Current routing begins with `horizon-context-sync` v0.6:
 - `codebase-orientation` — v0.1 — lightweight onboarding into unfamiliar repositories
 - `source-grounded-research` — v0.1 — primary-source, contradiction-aware research
 - `experiment-design` — v0.1 — baseline/control, measurement and reproducible experiment design
+- `nutrition-planning` — v0.1 — low-friction campus / budget / everyday nutrition planning with a strict medical boundary
+- `habit-change` — v0.1 — small behavior-change experiments using environment, action / coping plans and minimal monitoring
 
 Candidate Skills consume no scheduled study time. They are exercised only when a natural Horizon task matches.
 
@@ -54,10 +56,11 @@ Older Skills migrate opportunistically on their next material revision; no cosme
 
 External skill ecosystems are searched as **method sources**, not bulk-installed.
 
-The latest broad research / intake decision is:
+Current intake records:
 
-- [`EXTERNAL_SKILL_SCAN_2026-09-04.md`](./EXTERNAL_SKILL_SCAN_2026-09-04.md)
+- [`EXTERNAL_SKILL_SCAN_2026-09-04.md`](./EXTERNAL_SKILL_SCAN_2026-09-04.md) — broad engineering / research intake;
+- [`LIFE_HEALTH_SKILL_INTAKE_2026-09-05.md`](./LIFE_HEALTH_SKILL_INTAKE_2026-09-05.md) — selective life / health intake.
 
-It records what was absorbed, strengthened, deferred and rejected, with provenance.
+The life / health intake deliberately keeps community workflow ideas separate from health authority. Quantitative or mutable health guidance must be verified from reliable current sources when it matters.
 
 Full lifecycle, evaluation and external-intake rules live in [`ARCHITECTURE.md`](./ARCHITECTURE.md).
