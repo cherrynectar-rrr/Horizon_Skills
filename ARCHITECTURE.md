@@ -134,6 +134,7 @@ Do not create artificial milestones merely to finish a Trial.
 
 ### Candidate — Trial
 
+- `adaptive-guided-learning` — v0.1
 - `status-update` — HZN-002 v0.1
 - `engineering-debug-loop` — v0.2
 - `behavior-first-testing` — v0.1
