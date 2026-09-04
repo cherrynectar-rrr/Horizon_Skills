@@ -2,19 +2,25 @@
 
 Reusable, versioned operating procedures for Project Horizon.
 
-This repository contains methods that improve how Horizon work is executed across repositories. Skills do not create new authority, projects, or learning lines; they remain subordinate to the Project Horizon Charter and Thread Protocol in `cherrynectar-rrr/Project_Horizon`.
+This repository improves how Horizon work is executed across repositories. Skills do not create new authority, projects or learning lines; they remain subordinate to the Charter and Thread Protocol in `cherrynectar-rrr/Project_Horizon`.
 
 ## Scope
 
-- context synchronization and state-safe operation
+- context synchronization and repository routing
 - learning-loop procedures
 - status-update discipline
-- engineering debugging, testing, and design methods
+- engineering debugging, testing and design methods
 
-## Source of truth
+## Source of Truth
 
-This repository is the canonical home for active Horizon Skills after the multi-repository migration. Historical copies in `Project_Horizon` are retained temporarily during migration and must not be treated as a second live source.
+This repository is the **canonical home for active Horizon Skills** after the 2026-09-04 multi-repository cutover.
 
-## Current migration state
+Historical Skill copies and trial records preserved in `Project_Horizon` are history, not a second live source.
 
-Migration in progress. Existing adopted/trial Skills are being copied here before any historical source files are removed.
+## Current Operating Rule
+
+Use Skills only when they reduce repeated work or improve reliability. Skill maintenance must not become a separate standing workload.
+
+Current routing starts with `horizon-context-sync` v0.6:
+
+`task → owner → canonical repo → local state → execute`
