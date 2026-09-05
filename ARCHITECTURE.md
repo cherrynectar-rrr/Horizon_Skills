@@ -148,13 +148,17 @@ Do not create artificial milestones merely to finish a Trial.
 - `nutrition-planning` — v0.1
 - `habit-change` — v0.1
 
+### Draft
+
+- `horizon-human-voice` — v0.1-draft — targeted natural-voice preservation for conversation, collaborative writing and learner-owned prose; first intended natural trial: 2026 FLTRP English Speech Sprint
+
 ### Frozen numbered backlog
 
 - HZN-003 — evidence-intake
 - HZN-004 — strategic-route-audit
 - HZN-005 — opportunity-filter
 
-The engineering / research / life micro-skill trials do not consume or unfreeze those numbered IDs.
+The engineering / research / life / communication micro-skill trials do not consume or unfreeze those numbered IDs.
 
 ## Deliberately Deferred Patterns
 
@@ -180,6 +184,14 @@ Health-related Skills use a stricter evidence rule than ordinary workflow Skills
 - Clinical diagnosis / treatment, significant injury, addiction, eating disorders and similar issues remain outside ordinary life-optimization Skills.
 - Do not represent the assistant as a physician, dietitian, therapist or certified trainer.
 
+## Communication / Voice Boundary
+
+Communication-style Skills may change wording, rhythm, amount of structure and presentation, but must not change truth conditions, evidence boundaries, governance, safety constraints or required formal structure.
+
+They must not be used to evade AI detection, misrepresent authorship, imitate a named person's distinctive style or turn learner-owned work into polished text the learner cannot understand or deliver.
+
+For learner-owned writing, preserve the learner's demonstrated comprehension and voice unless the task explicitly requires a different register.
+
 ## Physical Location
 
 `Horizon_Skills` is the **canonical active home** for Horizon Skills.
@@ -202,6 +214,7 @@ The Skills layer is useful only if it measurably reduces or improves one or more
 - weak source grounding;
 - uninterpretable experiments;
 - daily-life planning friction;
+- communication friction;
 - user coordination burden.
 
 If a Skill adds more maintenance than it removes, simplify, merge, defer or remove it.
