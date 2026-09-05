@@ -40,7 +40,13 @@ Current routing begins with `horizon-context-sync` v0.6:
 - `nutrition-planning` — v0.1 — low-friction campus / budget / everyday nutrition planning with a strict medical boundary
 - `habit-change` — v0.1 — small behavior-change experiments using environment, action / coping plans and minimal monitoring
 
+### Draft
+
+- `horizon-human-voice` — v0.1-draft — preserve natural user voice and reduce robotic / over-structured communication without weakening rigor; intended first natural trial is the FLTRP English Speech Sprint
+
 Candidate Skills consume no scheduled study time. They are exercised only when a natural Horizon task matches.
+
+Draft Skills are proposals under evaluation and should not be treated as shared default procedures until promoted.
 
 ## Portable Format
 
